@@ -42,7 +42,6 @@ io.on("connection", (socket) => {
 
   socket.on("register-user", (user) => {
     connectedusers[user] = socket.id;
-    console.log(connectedusers);
   });
 
   socket.on("frontend-message", async ({ senderId, receiverId, text }) => {
