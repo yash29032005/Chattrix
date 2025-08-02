@@ -6,12 +6,19 @@ function Sidebar() {
   return (
     <>
       <div
-        style={{ background: "var(--secondary-color)", overflow: "auto" }}
-        className="col-4 p-3"
+        style={{ overflow: "auto", height: "auto" }}
+        className="col-12 col-lg-4 p-3"
       >
-        <Profile />
-        <Search />
-        <Userlist />
+        <div className="row-2">
+          <Profile />
+        </div>
+        <div
+          className="p-3 row-8 rounded-5"
+          style={{ background: "var(--secondary-color)" }}
+        >
+          <Search />
+          <Userlist />
+        </div>
       </div>
     </>
   );

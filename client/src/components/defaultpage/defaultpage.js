@@ -10,20 +10,28 @@ function Defaultpage() {
           background: "var(--primary-color)",
           height: "100vh",
         }}
-        className="col-8 d-flex flex-column align-items-center justify-content-center"
+        className="p-3 col-12 col-lg-8"
       >
-        <div ref={containerRef} style={{ position: "relative" }}>
-          <VariableProximity
-            label={"Click on any user to chat"}
-            className={"variable-proximity-demo"}
-            fromFontVariationSettings="'wght' 400, 'opsz' 9"
-            toFontVariationSettings="'wght' 1000, 'opsz' 40"
-            containerRef={containerRef}
-            radius={100}
-            falloff="linear"
-          />
+        <div
+          className="d-flex flex-column align-items-center justify-content-center rounded-5"
+          style={{
+            height: "100%",
+            background: "var(--secondary-color)",
+          }}
+        >
+          <div ref={containerRef} className="text-center">
+            <VariableProximity
+              label={"Click on any user to chat"}
+              className={"variable-proximity-demo"}
+              fromFontVariationSettings="'wght' 400, 'opsz' 9"
+              toFontVariationSettings="'wght' 1000, 'opsz' 40"
+              containerRef={containerRef}
+              radius={100}
+              falloff="linear"
+            />
+          </div>
+          <p>You selected the right app</p>
         </div>
-        <p>You selected the right app</p>
       </div>
     </>
   );

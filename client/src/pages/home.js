@@ -9,11 +9,14 @@ function Home() {
   return (
     <>
       <div
-        className="d-flex text-white"
-        style={{ height: "100vh", width: "100vw", overflow: "hidden" }}
+        id="Home"
+        className="text-white"
+        style={{ height: "100vh", background: "var(--primary-color)" }}
       >
-        <Sidebar />
-        {showmessagesection ? <Messagesection /> : <Defaultpage />}
+        <div className="row m-0">
+          <Sidebar />
+          {showmessagesection ? <Messagesection /> : <Defaultpage />}
+        </div>
       </div>
     </>
   );

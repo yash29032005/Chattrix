@@ -3,7 +3,7 @@ function Receivermessagebox({ time, text }) {
     <div className="d-flex justify-content-start">
       <div
         className="text-white p-3 rounded-4 shadow-sm text-wrap"
-        style={{ maxWidth: "75%", background: "var(--secondary-color)" }}
+        style={{ maxWidth: "75%", background: "var(--tertiary-color)" }}
       >
         <p className="mb-0">{text}</p>
         <div className="text-end small mt-1" style={{ color: "grey" }}>

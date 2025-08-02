@@ -2,7 +2,8 @@ const { User } = require("../models/user.model");
 
 exports.users = async (req, res) => {
   try {
-    const userlist = await User.find({ _id: { $ne: req.params.id } });
+    const { ids } = req.body;
+    const userlist = await User.find({ _id: { $in: ids } });
     res.status(200).json({ userlist });
   } catch (error) {
     console.log("Error in users controller: ", error.message);

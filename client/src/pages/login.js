@@ -34,11 +34,11 @@ function Login() {
   return (
     <>
       <div
-        style={{ height: "100vh", width: "100vw", background: "black" }}
+        style={{ height: "100vh", background: "black" }}
         className="d-flex align-items-center justify-content-center text-white"
       >
         <form
-          className="rounded-4 p-4 w-50"
+          className="rounded-4 p-4 col-9 col-md-5 fs-6"
           style={{ background: "var(--secondary-color)" }}
           onSubmit={handleSubmit}
         >

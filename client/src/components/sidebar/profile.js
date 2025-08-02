@@ -28,7 +28,7 @@ function Profile() {
   return (
     <>
       <div
-        style={{ height: "15%", background: "var(--tertiary-color)" }}
+        style={{ background: "var(--secondary-color)" }}
         className="mb-4 d-flex align-items-center justify-content-between rounded-5 p-3"
         onClick={() => {
           setProfilepage(true);

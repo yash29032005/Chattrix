@@ -4,7 +4,7 @@ function Messageprofile() {
   const { setShowmessagesection, selecteduser } = usePage();
   return (
     <>
-      <div className="d-flex align-items-center justify-content-between">
+      <div className=" d-flex align-items-center justify-content-between">
         <div className="d-flex align-items-center">
           <img
             style={{

@@ -42,6 +42,7 @@ io.on("connection", (socket) => {
 
   socket.on("register-user", (user) => {
     connectedusers[user] = socket.id;
+    io.emit("online-users", Object.keys(connectedusers));
   });
 
   socket.on("frontend-message", async ({ senderId, receiverId, text }) => {
@@ -71,6 +72,8 @@ io.on("connection", (socket) => {
         break;
       }
     }
+
+    io.emit("online-users", Object.keys(connectedusers));
   });
 });
 

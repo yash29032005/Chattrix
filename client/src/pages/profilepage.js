@@ -20,8 +20,8 @@ function Profilepage({ setProfilepage }) {
       <div
         style={{
           position: "fixed",
-          top: "10%",
-          left: "40%",
+          top: "calc(100vh - 90%)",
+          left: "calc(100vw - 85%)",
           zIndex: "5",
         }}
       >
