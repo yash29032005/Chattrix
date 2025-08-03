@@ -11,8 +11,6 @@ Chattrix is a real-time 1-on-1 chat application built using the MERN stack and S
 - 🟢 Online/Offline user indicator
 - 💾 Persistent message history
 - 📱 Responsive UI for all devices
-- 🌙 Light & Dark Theme support
-- 🔔 Message notifications
 
 ---
 
@@ -20,7 +18,7 @@ Chattrix is a real-time 1-on-1 chat application built using the MERN stack and S
 
 **Frontend:**
 - React.js
-- Tailwind CSS / Bootstrap (choose your actual)
+- Bootstrap 
 - Axios
 - Socket.IO Client
 
