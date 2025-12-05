@@ -1,23 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-<<<<<<< HEAD
-const cors = require("cors");
-const cookieParser = require("cookie-parser");
-const http = require("http");
-const { Server } = require("socket.io");
-require("./config/passport");
-const session = require("express-session");
-const passport = require("passport");
-
-const connectToDb = require("./config/db");
-const allRoutes = require("./routes/allRoutes");
-
-// express + http
-const app = express();
-const server = http.createServer(app);
-
-// socket.io setup
-=======
 const app = express();
 const cors = require("cors");
 const connectToDb = require("./config/db");
@@ -31,7 +13,6 @@ const Message = require("./models/message.model");
 
 const server = http.createServer(app);
 
->>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
 const io = new Server(server, {
   cors: {
     origin: process.env.REACT_APP_WEB_URI,
@@ -39,15 +20,8 @@ const io = new Server(server, {
   },
 });
 
-<<<<<<< HEAD
-// db connect
 connectToDb();
 
-// middlewares
-=======
-connectToDb();
-
->>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
 app.use(cookieParser());
 app.use(express.json());
 app.use(
@@ -57,25 +31,6 @@ app.use(
   })
 );
 
-<<<<<<< HEAD
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET || "supersecret", // use strong secret in .env
-    resave: false,
-    saveUninitialized: false,
-    cookie: { secure: false }, // set true if using https
-  })
-);
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-//Routes
-app.use("/api", allRoutes);
-
-// socket logic (separated)
-require("./socket/io")(io);
-=======
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/messages", messageRoutes);
@@ -121,7 +76,6 @@ io.on("connection", (socket) => {
     io.emit("online-users", Object.keys(connectedusers));
   });
 });
->>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
 
 const port = process.env.PORT || 9000;
 server.listen(port, () => {

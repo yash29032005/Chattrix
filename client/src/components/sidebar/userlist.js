@@ -16,10 +16,7 @@ function Userlist() {
           `${process.env.REACT_APP_API_URL}/api/users/`,
           { ids: onlineUserIds }
         );
-<<<<<<< HEAD
-=======
         setUserslist(res.data.userlist);
->>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
         setUserslist(res.data.userlist.filter((u) => u._id !== user._id));
       } catch (error) {
         toast.error(error.response?.data?.error);
@@ -28,10 +25,7 @@ function Userlist() {
     return () => {
       socket.off("online-users");
     };
-<<<<<<< HEAD
     // eslint-disable-next-line react-hooks/exhaustive-deps
-=======
->>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
   }, []);
 
   return (

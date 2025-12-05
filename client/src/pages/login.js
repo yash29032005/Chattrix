@@ -14,10 +14,6 @@ function Login() {
     try {
       const res = await axios.post(
         `${process.env.REACT_APP_API_URL}/api/auth/login`,
-<<<<<<< HEAD
-        { email, password },
-        { withCredentials: true }
-=======
         {
           email,
           password,
@@ -25,7 +21,6 @@ function Login() {
         {
           withCredentials: true,
         }
->>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
       );
       setEmail("");
       setPassword("");
@@ -36,76 +31,6 @@ function Login() {
     }
   };
 
-<<<<<<< HEAD
-  const handleGoogleLogin = () => {
-    window.open(`${process.env.REACT_APP_API_URL}/api/auth/google`, "_self");
-  };
-
-  return (
-    <div
-      style={{ height: "100vh", background: "black" }}
-      className="d-flex align-items-center justify-content-center text-white"
-    >
-      <form
-        className="rounded-4 p-4 col-9 col-md-5 fs-6"
-        style={{ background: "var(--secondary-color)" }}
-        onSubmit={handleSubmit}
-      >
-        <h2 className="text-center">Please login first!</h2>
-
-        {/* Email login */}
-        <div className="form-group mb-4">
-          <label>
-            Email address <span style={{ color: "red" }}>*</span>
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            placeholder="Enter email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-
-        <div className="form-group mb-4">
-          <label>
-            Password <span style={{ color: "red" }}>*</span>
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-
-        <div>
-          <Link to={"/signup"}>Don't have an account?</Link>
-        </div>
-
-        <div className="form-check mb-4">
-          <input type="checkbox" className="form-check-input" />
-          <label className="form-check-label">
-            Agree to all the terms & conditions
-          </label>
-        </div>
-
-        <button type="submit" className="btn btn-dark w-100 mb-3">
-          Submit
-        </button>
-
-        {/* Google Login */}
-        <button
-          type="button"
-          onClick={handleGoogleLogin}
-          className="btn btn-danger w-100"
-        >
-          Sign in with Google
-        </button>
-      </form>
-    </div>
-=======
   return (
     <>
       <div
@@ -164,7 +89,6 @@ function Login() {
         </form>{" "}
       </div>
     </>
->>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
   );
 }
 
