@@ -17,15 +17,21 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
+<<<<<<< HEAD
     "express-session": "^1.18.2",
+=======
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
     "joi": "^17.13.3",
     "joi-password-complexity": "^5.2.0",
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "mongoose": "^8.16.3",
     "nodemon": "^3.1.10",
+<<<<<<< HEAD
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
+=======
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
     "socket.io": "^4.8.1"
   }
 }

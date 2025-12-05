@@ -1,6 +1,7 @@
 import Messagedisplay from "./messagedisplay";
 import Messageinputsend from "./messageinputsend";
 import Messageprofile from "./messageprofile";
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import { socket } from "../../utils/socket";
 import { usePage } from "../../context/pagecontext";
@@ -27,6 +28,10 @@ function Messagesection() {
       socket.off("hide-typing");
     };
   }, [selecteduser]);
+=======
+
+function Messagesection() {
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
   return (
     <>
       <div
@@ -43,8 +48,13 @@ function Messagesection() {
             background: "var(--secondary-color)",
           }}
         >
+<<<<<<< HEAD
           <Messageprofile isTyping={isTyping} />
           <Messagedisplay isTyping={isTyping} />
+=======
+          <Messageprofile />
+          <Messagedisplay />
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
           <Messageinputsend />
         </div>
       </div>

@@ -4,7 +4,12 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 function Signup() {
+<<<<<<< HEAD
   const [name, setName] = useState("");
+=======
+  const [fullname, setFullname] = useState("");
+  const [username, setUsername] = useState("");
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,12 +21,22 @@ function Signup() {
       const res = await axios.post(
         `${process.env.REACT_APP_API_URL}/api/auth/signup`,
         {
+<<<<<<< HEAD
           name,
+=======
+          fullname,
+          username,
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
           email,
           password,
         }
       );
+<<<<<<< HEAD
       setName("");
+=======
+      setFullname("");
+      setUsername("");
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
       setEmail("");
       setPassword("");
       toast.success(res.data.message);
@@ -53,6 +68,7 @@ function Signup() {
           <h2 className="text-center">Signup</h2>
 
           <div className="form-group mb-4">
+<<<<<<< HEAD
             <label htmlFor="exampleInputFullname">
               Name <span style={{ color: "red" }}>*</span>
             </label>
@@ -62,6 +78,15 @@ function Signup() {
               value={name}
               onChange={(e) => {
                 setName(e.target.value);
+=======
+            <label htmlFor="exampleInputFullname">Full name</label>
+            <input
+              type="text"
+              className="form-control"
+              value={fullname}
+              onChange={(e) => {
+                setFullname(e.target.value);
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
               }}
               id="exampleInputFullname"
               placeholder="Enter fullname"
@@ -69,9 +94,27 @@ function Signup() {
           </div>
 
           <div className="form-group mb-4">
+<<<<<<< HEAD
             <label htmlFor="exampleInputEmail1">
               Email address <span style={{ color: "red" }}>*</span>
             </label>
+=======
+            <label htmlFor="exampleInputUsername">Username</label>
+            <input
+              type="text"
+              className="form-control"
+              value={username}
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+              id="exampleInputUsername"
+              placeholder="Enter username"
+            />
+          </div>
+
+          <div className="form-group mb-4">
+            <label htmlFor="exampleInputEmail1">Email address</label>
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
             <input
               type="email"
               className="form-control"
@@ -85,9 +128,13 @@ function Signup() {
           </div>
 
           <div className="form-group mb-4">
+<<<<<<< HEAD
             <label htmlFor="exampleInputPassword1">
               Password <span style={{ color: "red" }}>*</span>
             </label>
+=======
+            <label htmlFor="exampleInputPassword1">Password</label>
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
             <input
               type="password"
               className="form-control"

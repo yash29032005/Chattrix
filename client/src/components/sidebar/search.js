@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from "react";
 import Groupmodal from "../../utils/groupmodal";
 
@@ -23,6 +24,16 @@ function Search() {
       {opengroupmodal ? (
         <Groupmodal setOpengroupmodal={setOpengroupmodal} />
       ) : null}
+=======
+function Search() {
+  return (
+    <>
+      <div>
+        <h3 className="ms-1">Online Users</h3>
+        <input type="text" className="form-control" placeholder="Search user" />
+        <hr />
+      </div>
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
     </>
   );
 }

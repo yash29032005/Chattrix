@@ -1,5 +1,13 @@
 client/node_modules/
 server/node_modules/
+<<<<<<< HEAD
 
 client/.env
 server/.env
+=======
+node_modules/
+
+client/.env
+server/.env
+.env
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f

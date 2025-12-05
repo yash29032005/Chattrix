@@ -2,7 +2,10 @@ const express = require("express");
 const { signup, login, me, logout } = require("../controller/auth.controller");
 const Router = express.Router();
 const protectauth = require("../middleware/protectauth");
+<<<<<<< HEAD
 const passport = require("passport");
+=======
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
 
 Router.post("/signup", signup);
 
@@ -12,6 +15,7 @@ Router.get("/logout", logout);
 
 Router.get("/me", protectauth, me);
 
+<<<<<<< HEAD
 // Google OAuth route
 Router.get(
   "/google",
@@ -39,4 +43,6 @@ Router.get(
   }
 );
 
+=======
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
 module.exports = Router;

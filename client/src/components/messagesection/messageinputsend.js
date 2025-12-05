@@ -9,13 +9,17 @@ function Messageinputsend() {
   const { selecteduser } = usePage();
 
   const handleSendMessage = () => {
+<<<<<<< HEAD
     if (!message.trim()) return;
 
+=======
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
     socket.emit("frontend-message", {
       senderId: user._id,
       receiverId: selecteduser._id,
       text: message,
     });
+<<<<<<< HEAD
 
     // stop typing after sending
     socket.emit("stop-typing", {
@@ -54,6 +58,26 @@ function Messageinputsend() {
         Send
       </button>
     </div>
+=======
+  };
+
+  return (
+    <>
+      <div className="d-flex p-3" style={{ width: "100%" }}>
+        <input
+          onChange={(e) => {
+            setMessage(e.target.value);
+          }}
+          type="text"
+          placeholder="Type a message..."
+          className="input-group px-2 rounded-3 w-100 me-2"
+        />
+        <button className="btn btn-dark" onClick={handleSendMessage}>
+          Send
+        </button>
+      </div>
+    </>
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
   );
 }
 export default Messageinputsend;

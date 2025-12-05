@@ -7,9 +7,16 @@ import Profilepage from "../../pages/profilepage";
 
 function Profile() {
   const [profilepage, setProfilepage] = useState(false);
+<<<<<<< HEAD
   const navigate = useNavigate();
   const { user, setUser } = useAuth();
 
+=======
+
+  const navigate = useNavigate();
+
+  const { user, setUser } = useAuth();
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
   if (!user) return <Navigate to="/login" />;
 
   const handleLogout = async () => {
@@ -29,6 +36,7 @@ function Profile() {
       <div
         style={{ background: "var(--secondary-color)" }}
         className="mb-4 d-flex align-items-center justify-content-between rounded-5 p-3"
+<<<<<<< HEAD
       >
         {/* Profile info */}
         <div
@@ -56,6 +64,38 @@ function Profile() {
       </div>
 
       {profilepage && <Profilepage setProfilepage={setProfilepage} />}
+=======
+        onClick={() => {
+          setProfilepage(true);
+        }}
+      >
+        <div className="d-flex align-items-center">
+          <div>
+            {user ? (
+              <img
+                style={{
+                  height: "60px",
+                  background: "var(--primary-color)",
+                }}
+                className="rounded-circle"
+                src={`https://robohash.org/${user.username}`}
+                alt="profilepic"
+              />
+            ) : null}
+          </div>
+          {user ? (
+            <h5 className="ms-3 mb-0">{user.username}</h5>
+          ) : (
+            <h5 className="ms-3 mb-0">User</h5>
+          )}
+        </div>
+
+        <div onClick={handleLogout}>
+          <i className="bi bi-box-arrow-right"></i>
+        </div>
+      </div>
+      {profilepage ? <Profilepage setProfilepage={setProfilepage} /> : null}
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
     </>
   );
 }

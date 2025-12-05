@@ -1,11 +1,21 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
+<<<<<<< HEAD
+=======
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
 import { socket } from "../utils/socket";
 
 const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
+<<<<<<< HEAD
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+=======
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
 
   useEffect(() => {
     if (user && user._id) {
@@ -23,6 +33,7 @@ export const AuthProvider = ({ children }) => {
           }
         );
         setUser(res.data.user);
+<<<<<<< HEAD
       } catch {
         setUser(null);
       } finally {
@@ -33,6 +44,17 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   if (loading) return <div>Loading...</div>;
+=======
+        navigate("/");
+      } catch (error) {
+        toast.error(error.response?.data?.error || "Unexpected error");
+        setUser(null);
+      }
+    };
+
+    checkAuth();
+  }, [navigate]);
+>>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
 
   return (
     <>
