@@ -7,7 +7,7 @@ Chattrix is a real-time 1-on-1 chat application built using the MERN stack and S
 ## 🚀 Features
 
 - 🔐 User Authentication (Register & Login)
-- 👤 Real-time private 1-to-1 chat
+- 👤 Real-time private 1-to-1 chats
 - 🟢 Online/Offline user indicator
 - 💾 Persistent message history
 - 📱 Responsive UI for all devices
@@ -17,12 +17,14 @@ Chattrix is a real-time 1-on-1 chat application built using the MERN stack and S
 ## 🛠️ Tech Stack
 
 **Frontend:**
+
 - React.js
-- Bootstrap 
+- Bootstrap
 - Axios
 - Socket.IO Client
 
 **Backend:**
+
 - Node.js
 - Express.js
 - MongoDB + Mongoose
@@ -38,3 +40,4 @@ Chattrix is a real-time 1-on-1 chat application built using the MERN stack and S
    ```bash
    git clone https://github.com/yourusername/chatpap.git
    cd chatpap
+   ```
