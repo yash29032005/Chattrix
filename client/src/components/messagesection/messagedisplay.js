@@ -6,11 +6,7 @@ import { useAuth } from "../../context/authcontext";
 import axios from "axios";
 import { usePage } from "../../context/pagecontext";
 
-<<<<<<< HEAD
-function Messagedisplay({ isTyping }) {
-=======
 function Messagedisplay() {
->>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
   const [messages, setMessages] = useState([]);
   const { user } = useAuth();
   const { selecteduser } = usePage();
@@ -64,11 +60,6 @@ function Messagedisplay() {
             <Receivermessagebox key={idx} text={msg.text} />
           )
         )}
-<<<<<<< HEAD
-
-        {isTyping && <Receivermessagebox isTyping={true} />}
-=======
->>>>>>> 739245a40217a2df3002488a0fecdd4378f00a5f
         <div ref={bottomRef} />
       </div>
     </>
