@@ -1,7 +1,8 @@
-import { usePage } from "../../context/pagecontext";
+import { useAuth } from "../../context/authcontext";
 
 function Messageprofile() {
-  const { setShowmessagesection, selecteduser } = usePage();
+  const { selectedUser } = useAuth();
+
   return (
     <>
       <div className=" d-flex align-items-center justify-content-between">
@@ -13,20 +14,13 @@ function Messageprofile() {
               background: "var(--primary-color)",
             }}
             className="rounded-circle ms-3"
-            src={`https://robohash.org/${selecteduser.username}`}
+            src={`https://robohash.org/${selectedUser.chatName}`}
             alt="profilepic"
           />
-          <h4 className="m-4">{selecteduser.fullname}</h4>
+          <h4 className="m-4">{selectedUser.chatName}</h4>
           <hr className="pb-0" />
         </div>
-        <button
-          className="btn btn-dark me-3"
-          onClick={() => {
-            setShowmessagesection(false);
-          }}
-        >
-          Back
-        </button>
+        <button className="btn btn-dark me-3">Back</button>
       </div>
     </>
   );

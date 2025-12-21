@@ -6,7 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { BrowserRouter } from "react-router-dom";
-import { PageProvider } from "./context/pagecontext";
 import { ToastContainer } from "react-toastify";
 import { AuthProvider } from "./context/authcontext";
 
@@ -14,10 +13,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <AuthProvider>
-      <PageProvider>
-        <ToastContainer />
-        <App />
-      </PageProvider>
+      <ToastContainer />
+      <App />
     </AuthProvider>
   </BrowserRouter>
 );

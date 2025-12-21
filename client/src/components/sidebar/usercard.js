@@ -1,8 +1,4 @@
-import { usePage } from "../../context/pagecontext";
-
 function Usercard({ otheruser }) {
-  const { setShowmessagesection, setSelecteduser } = usePage();
-
   return (
     <>
       <div
@@ -12,10 +8,6 @@ function Usercard({ otheruser }) {
           position: "relative",
         }}
         className="rounded-4 d-flex align-items-center mb-4 p-3"
-        onClick={() => {
-          setShowmessagesection(true);
-          setSelecteduser(otheruser);
-        }}
       >
         <div style={{ position: "relative" }}>
           <img
@@ -41,7 +33,7 @@ function Usercard({ otheruser }) {
             }}
           />
         </div>
-        <h5 className="ms-4 mt-2">{otheruser.fullname}</h5>
+        <h5 className="ms-4 mt-2">{otheruser.username}</h5>
       </div>
     </>
   );

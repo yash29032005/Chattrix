@@ -1,20 +1,10 @@
 import { useState } from "react";
-import { socket } from "../../utils/socket";
-import { useAuth } from "../../context/authcontext";
-import { usePage } from "../../context/pagecontext";
+// import { socket } from "../../utils/socket";
+// import { useAuth } from "../../context/authcontext";
 
 function Messageinputsend() {
   const [message, setMessage] = useState("");
-  const { user } = useAuth();
-  const { selecteduser } = usePage();
-
-  const handleSendMessage = () => {
-    socket.emit("frontend-message", {
-      senderId: user._id,
-      receiverId: selecteduser._id,
-      text: message,
-    });
-  };
+  // const { user } = useAuth();
 
   return (
     <>
@@ -27,9 +17,7 @@ function Messageinputsend() {
           placeholder="Type a message..."
           className="input-group px-2 rounded-3 w-100 me-2"
         />
-        <button className="btn btn-dark" onClick={handleSendMessage}>
-          Send
-        </button>
+        <button className="btn btn-dark">Send</button>
       </div>
     </>
   );

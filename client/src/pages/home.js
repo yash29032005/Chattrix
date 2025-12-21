@@ -1,10 +1,11 @@
-import { usePage } from "../context/pagecontext";
-import Defaultpage from "../components/defaultpage/defaultpage";
+import Defaultpage from "./defaultpage";
 import Messagesection from "../components/messagesection/messagesection";
 import Sidebar from "../components/sidebar/sidebar";
+import { useAuth } from "../context/authcontext";
 
 function Home() {
-  const { showmessagesection } = usePage();
+  const { selectedUser } = useAuth();
+  const showmessagesection = !!selectedUser;
 
   return (
     <>

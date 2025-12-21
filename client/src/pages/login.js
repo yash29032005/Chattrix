@@ -1,33 +1,38 @@
-import axios from "axios";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useAuth } from "../context/authcontext";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const { setLoading, setUser } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/auth/login`,
+      setLoading(true);
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/user/login`,
         {
           email,
           password,
         },
-        {
-          withCredentials: true,
-        }
+        { withCredentials: true }
       );
-      setEmail("");
-      setPassword("");
-      toast.success(res.data.message);
+
+      localStorage.setItem("user", JSON.stringify(data.user));
+      setUser(data.user);
+
+      toast.success("Logged in!");
       navigate("/");
-    } catch (error) {
-      toast.error(error.response?.data?.error || "Unexpected error");
+    } catch (err) {
+      toast.error(err.response?.data?.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -72,16 +77,6 @@ function Login() {
           </div>
           <div>
             <Link to={"/signup"}>Don't have an account?</Link>
-          </div>
-          <div className="form-check mb-4">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="exampleCheck1"
-            />
-            <label className="form-check-label" htmlFor="exampleCheck1">
-              Agree to all the terms & conditions
-            </label>
           </div>
           <button type="submit" className="btn btn-dark w-100">
             Submit

@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import VariableProximity from "./VariableProximity";
+import VariableProximity from "../utils/VariableProximity";
 
 function Defaultpage() {
   const containerRef = useRef(null);

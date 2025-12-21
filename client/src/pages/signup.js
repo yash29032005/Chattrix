@@ -2,35 +2,34 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useAuth } from "../context/authcontext";
 
 function Signup() {
-  const [fullname, setFullname] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+  const { setLoading, setUser } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/auth/signup`,
-        {
-          fullname,
-          username,
-          email,
-          password,
-        }
+      setLoading(true);
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API_URL}'/api/auth`,
+        (email, username, password)
       );
-      setFullname("");
-      setUsername("");
-      setEmail("");
-      setPassword("");
-      toast.success(res.data.message);
-      navigate("/login");
-    } catch (error) {
-      toast.error(error.response?.data?.error || "Unexpected error");
+
+      localStorage.setItem("user", JSON.stringify(data.user));
+      setUser(data.user);
+
+      toast.success("Registered successfully!");
+      navigate("/");
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Registration failed");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -54,20 +53,6 @@ function Signup() {
           onSubmit={handleSubmit}
         >
           <h2 className="text-center">Signup</h2>
-
-          <div className="form-group mb-4">
-            <label htmlFor="exampleInputFullname">Full name</label>
-            <input
-              type="text"
-              className="form-control"
-              value={fullname}
-              onChange={(e) => {
-                setFullname(e.target.value);
-              }}
-              id="exampleInputFullname"
-              placeholder="Enter fullname"
-            />
-          </div>
 
           <div className="form-group mb-4">
             <label htmlFor="exampleInputUsername">Username</label>
@@ -113,17 +98,6 @@ function Signup() {
 
           <div>
             <Link to="/login">Already have an account?</Link>
-          </div>
-
-          <div className="form-check mb-4">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="exampleCheck1"
-            />
-            <label className="form-check-label" htmlFor="exampleCheck1">
-              Agree to all the terms & conditions
-            </label>
           </div>
 
           <button type="submit" className="btn btn-dark w-100">

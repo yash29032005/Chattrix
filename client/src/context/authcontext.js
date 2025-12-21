@@ -1,43 +1,37 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { socket } from "../utils/socket";
 
 const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
-  const navigate = useNavigate();
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    const saved = localStorage.getItem("user");
+    return saved ? JSON.parse(saved) : null;
+  });
+
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (user && user._id) {
-      socket.emit("register-user", user._id);
+    if (user?.token) {
+      axios.defaults.headers.common["Authorization"] = `Bearer ${user.token}`;
+    } else {
+      delete axios.defaults.headers.common["Authorization"];
     }
   }, [user]);
 
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const res = await axios.get(
-          `${process.env.REACT_APP_API_URL}/api/auth/me`,
-          {
-            withCredentials: true,
-          }
-        );
-        setUser(res.data.user);
-        navigate("/");
-      } catch (error) {
-        toast.error(error.response?.data?.error || "Unexpected error");
-        setUser(null);
-      }
-    };
-
-    checkAuth();
-  }, [navigate]);
-
   return (
     <>
-      <AuthContext.Provider value={{ user, setUser }}>
+      <AuthContext.Provider
+        value={{
+          user,
+          setUser,
+          selectedUser,
+          setSelectedUser,
+          loading,
+          setLoading,
+          isAuthenticated: !!user,
+        }}
+      >
         {children}
       </AuthContext.Provider>
     </>

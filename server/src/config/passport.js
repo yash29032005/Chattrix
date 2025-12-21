@@ -15,7 +15,6 @@ passport.use(
 
         if (!user) {
           user = new User({
-            fullname: profile.displayName,
             username: profile.emails[0].value.split("@")[0],
             email: profile.emails[0].value,
             password: null, // not required for Google users
